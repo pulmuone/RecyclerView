@@ -35,11 +35,12 @@ class MainActivity : AppCompatActivity() {
 
         //ViewHolder 클래스
         inner class ViewHolderClass(itemView: View) : RecyclerView.ViewHolder(itemView), View.OnClickListener {
-            //val rowImageView = itemView.findViewById<ImageView>(R.id.rowImageView)
-            //val rowTextView =  itemView.findViewById<TextView>(R.id.rowTextView)
-            var rowView = itemView as RowBinding
-            val rowImageView = rowView.rowImageView
-            val rowTextView = rowView.rowTextView
+            val rowImageView = itemView.findViewById<ImageView>(R.id.rowImageView)
+            val rowTextView =  itemView.findViewById<TextView>(R.id.rowTextView)
+            val rowButton =  itemView.findViewById<TextView>(R.id.rowButton)
+            //var rowView = itemView as RowBinding
+            //val rowImageView = rowView.rowImageView
+            //val rowTextView = rowView.rowTextView
 
             override fun onClick(v: View?) {
                 binding.textView.text = data1[adapterPosition]
@@ -61,6 +62,10 @@ class MainActivity : AppCompatActivity() {
         override fun onBindViewHolder(holder: ViewHolderClass, position: Int) {
             holder.rowImageView.setImageResource(imgRes[position])
             holder.rowTextView.text = data1[position]
+            holder.rowButton.setOnClickListener {
+                binding.textView.text = "버튼 클릭 ${data1[position]}"
+            }
+
         }
 
         //
