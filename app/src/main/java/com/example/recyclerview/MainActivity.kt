@@ -28,6 +28,11 @@ class MainActivity : AppCompatActivity() {
 
         binding.recycler1.layoutManager = LinearLayoutManager(this)
 
+        // recycler1.layoutManager = LinearLayoutManager(this)
+        // recycler1.layoutManager = GridLayoutManager(this, 2)
+        //recycler1.layoutManager = StaggeredGridLayoutManager(2, StaggeredGridLayoutManager.VERTICAL)
+        // recycler1.layoutManager = StaggeredGridLayoutManager(2, StaggeredGridLayoutManager.HORIZONTAL)
+
     }
 
     //RecyclerView의  Adapter 클래스
@@ -65,7 +70,6 @@ class MainActivity : AppCompatActivity() {
             holder.rowButton.setOnClickListener {
                 binding.textView.text = "버튼 클릭 ${data1[position]}"
             }
-
         }
 
         //
